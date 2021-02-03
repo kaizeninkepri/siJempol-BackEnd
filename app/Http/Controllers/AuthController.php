@@ -16,6 +16,12 @@ class AuthController extends Controller
         $type = $request->get("type");
         if ($type == 'GetUserAll') {
             return self::GetUserAll($request);
+        } else if ($type == 'GetUserByName') {
+            return self::GetUserByName($request);
+        } else if ($type == 'GetUserById') {
+            return self::GetUserById($request);
+        } else if ($type == 'GetUserByEmail') {
+            return self::GetUserByEmail($request);
         }
     }
 
@@ -63,6 +69,30 @@ class AuthController extends Controller
     public static function GetUserAll()
     {
         return user::with(['perusahaan'])->get();
+    }
+
+    public static function GetUserByName(Request $request)
+    {
+        $name = $request->get("name");
+        return user::with(['perusahaan'])
+            ->where("name", "like", "%" . $name . "%")
+            ->get();
+    }
+
+    public static function GetUserById(Request $request)
+    {
+        $id = $request->get("id");
+        return user::with(['perusahaan'])
+            ->where("id", $id)
+            ->get();
+    }
+
+    public static function GetUserByEmail(Request $request)
+    {
+        $email = $request->get("email");
+        return user::with(['perusahaan'])
+            ->where("email", $email)
+            ->get();
     }
 
 }
