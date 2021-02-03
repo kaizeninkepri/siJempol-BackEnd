@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\perusahaan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class pendaftaranControl extends Controller
 {
@@ -34,12 +35,14 @@ class pendaftaranControl extends Controller
         );
 
         perusahaan::insert($perusahaanData);
+        $perusahaan_id = DB::getPdo()->lastInsertId();
 
        $userData = array(
         "name" => $user['name'],
         "email" => $data['email'],
         "password" => bcrypt($user['password']),
-        "role_id" => '3'
+            "role_id" => '3',
+            "perusahaan_id" => $perusahaan_id
        ); 
        User::insert($userData);
 

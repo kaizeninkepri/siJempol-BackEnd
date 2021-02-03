@@ -26,6 +26,7 @@ Route::get('/menu',  [menuControl::class,'menu']);
 Route::post('/permohonan',  [permohonanControl::class,'permohonanTable']);
 Route::post('/permohonan',  [permohonanControl::class,'permohonanTable']);
 Route::post('/pendaftaran   ',  [pendaftaranControl::class,'index']);
+Route::post('/user   ',  [AuthController::class, 'index']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

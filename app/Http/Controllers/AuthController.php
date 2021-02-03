@@ -6,9 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\menuControl;
 use App\Models\roles;
+use PDO;
 
 class AuthController extends Controller
 {
+
+    function index(Request $request)
+    {
+        $type = $request->get("type");
+        if ($type == 'GetUserAll') {
+            return self::GetUserAll($request);
+        }
+    }
+
     public function register(Request $request)
     {
         
@@ -48,6 +58,11 @@ class AuthController extends Controller
         $userData["user"]["role"] =  $role;
 
         return response(['code' => "200", "user" => $userData["user"]]);
+    }
+
+    public static function GetUserAll()
+    {
+        return user::with(['perusahaan'])->get();
     }
 
 }
