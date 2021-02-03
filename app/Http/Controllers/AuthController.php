@@ -74,25 +74,42 @@ class AuthController extends Controller
     public static function GetUserByName(Request $request)
     {
         $name = $request->get("name");
-        return user::with(['perusahaan'])
+        $user = user::with(['perusahaan'])
             ->where("name", "like", "%" . $name . "%")
             ->get();
+        if (count($user) > 0) {
+            return $user;
+        } else {
+            return "404 - NOT FOUND";
+        }
     }
 
     public static function GetUserById(Request $request)
     {
         $id = $request->get("id");
-        return user::with(['perusahaan'])
+        $user = user::with(['perusahaan'])
             ->where("id", $id)
             ->get();
+
+        if (count($user) > 0) {
+            return $user;
+        } else {
+            return "404 - NOT FOUND";
+        }
     }
 
     public static function GetUserByEmail(Request $request)
     {
         $email = $request->get("email");
-        return user::with(['perusahaan'])
+        $user =  user::with(['perusahaan'])
             ->where("email", $email)
             ->get();
+
+        if (count($user) > 0) {
+            return $user;
+        } else {
+            return "404 - NOT FOUND";
+        }
     }
 
 }
