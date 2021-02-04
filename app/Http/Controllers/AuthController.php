@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\menuControl;
+use App\Models\perusahaan;
 use App\Models\roles;
 use PDO;
 
@@ -57,11 +58,13 @@ class AuthController extends Controller
         $roleId->request->add(['id' => auth()->user()->role_id]);
         $menu = menuControl::menu($roleId);
         $role = roles::where('role_id', auth()->user()->role_id)->first();
+        $perusahaan = perusahaan::where('perusahaan_id', auth()->user()->perusahaan_id)->first();
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
         $userData = array("user" => auth()->user());
         $userData["user"]["access_token"] =  $accessToken;
         $userData["user"]["menu"] =  $menu;
         $userData["user"]["role"] =  $role;
+        $userData["user"]["perusahaan"] =  $perusahaan;
 
         return response(['code' => "200", "user" => $userData["user"]]);
     }

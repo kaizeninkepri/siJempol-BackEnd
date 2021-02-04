@@ -7,6 +7,7 @@ use App\Http\Controllers\menuControl;
 use App\Http\Controllers\pdfControl;
 use App\Http\Controllers\pendaftaranControl;
 use App\Http\Controllers\permohonanControl;
+use App\Http\Controllers\perusahaanControl;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,9 @@ Route::post('/login',  [AuthController::class,'login']);
 Route::get('/menu',  [menuControl::class,'menu']);
 Route::post('/permohonan',  [permohonanControl::class,'permohonanTable']);
 Route::post('/permohonan',  [permohonanControl::class,'permohonanTable']);
-Route::post('/pendaftaran   ',  [pendaftaranControl::class,'index']);
-Route::post('/user   ',  [AuthController::class, 'index']);
+Route::post('/pendaftaran',  [pendaftaranControl::class, 'index']);
+Route::post('/user',  [AuthController::class, 'index']);
+Route::post('/perusahaan',  [perusahaanControl::class, 'index']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
