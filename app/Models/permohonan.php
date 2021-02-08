@@ -11,7 +11,35 @@ class permohonan extends Model
     use HasFactory;
     protected $table = "permohonan";
     protected $primaryKey = "permohonan_id";
-    protected $appends =['waktu','waktuClass','_showDetails','rowClass'];
+    protected $appends = ['waktu', 'waktuClass', '_showDetails', 'rowClass', 'OnStep'];
+
+
+    function getOnStepAttribute()
+    {
+        if ($this->status == 'pending') {
+            return "Pemohon";
+        } else if ($this->status == 'proses') {
+            return "Front Office";
+        } else if ($this->status == 'keabsahan') {
+            return "Back Office";
+        } else if ($this->status == 'tekniskirim') {
+            return "OPD Teknis";
+        } else if ($this->status == 'teknisbalas') {
+            return "Back Office";
+        } else if ($this->status == 'teknisbalas') {
+            return "Back Office";
+        } else if ($this->status == 'teknis') {
+            return "OPD Teknis";
+        } else if ($this->status == 'selesai') {
+            return "selesai";
+        } else if ($this->status == 'selesaiNoScan') {
+            return "Back Office";
+        } else if ($this->status == 'selesaaiScan') {
+            return "Selesai Belum di Ambil";
+        } else if ($this->status == 'tolak') {
+            return "permohonan - berkas di tolak";
+        }
+    }
 
     function getwaktuAttribute(){
        $days = Carbon::parse($this->updated_at)->diffInDays();

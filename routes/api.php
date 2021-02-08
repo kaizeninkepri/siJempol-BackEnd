@@ -24,8 +24,7 @@ Route::post('/register', [AuthController::class,'register']);
 Route::post('/login',  [AuthController::class,'login']);
 
 Route::get('/menu',  [menuControl::class,'menu']);
-Route::post('/permohonan',  [permohonanControl::class,'permohonanTable']);
-Route::post('/permohonan',  [permohonanControl::class,'permohonanTable']);
+Route::post('/permohonan',  [permohonanControl::class, 'index']);
 Route::post('/pendaftaran',  [pendaftaranControl::class, 'index']);
 Route::post('/user',  [AuthController::class, 'index']);
 Route::post('/perusahaan',  [perusahaanControl::class, 'index']);
