@@ -14,6 +14,8 @@ class pendaftaranControl extends Controller
         $type = $request->get('type');
         if($type == 'InsertPendaftaran'){
             return self::InsertPendaftaran($request);
+        } else if ($type == 'checkinEmail') {
+            return self::checkinEmail($request);
         }
     
     }
@@ -41,10 +43,30 @@ class pendaftaranControl extends Controller
         "name" => $user['name'],
         "email" => $data['email'],
         "password" => bcrypt($user['password']),
-            "role_id" => '3',
+            "role_id" => '8',
             "perusahaan_id" => $perusahaan_id
        ); 
        User::insert($userData);
+        //tologin 
+        $userLogin = new Request();
+        $userLogin->replace(['email' => $data['email'], 'password' => $user['password']]);
+        return AuthController::login($userLogin);
+    }
+
+    public static function checkinEmail(Request $request)
+    {
+        $npwp = $request->get("email");
+        $perusahaan = User::where("email", $npwp)->first();
+
+        if ($perusahaan) {
+            $code = "200";
+        } else {
+            $code = "404";
+        }
+        return array(
+            "code" => $code,
+            "data" => $perusahaan
+        );
 
     }
 }
