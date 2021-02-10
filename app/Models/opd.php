@@ -14,6 +14,6 @@ class opd extends Model
 
     function izin()
     {
-        return $this->hasMany(izinControl::class, 'opd_id');
+        return $this->hasMany(izin::class, 'opd_id');
     }
 }
