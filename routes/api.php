@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\izinControl;
 use App\Http\Controllers\menuControl;
+use App\Http\Controllers\opdControl;
 use App\Http\Controllers\pdfControl;
 use App\Http\Controllers\pendaftaranControl;
 use App\Http\Controllers\permohonanControl;
@@ -30,6 +31,7 @@ Route::post('/pendaftaran',  [pendaftaranControl::class, 'index']);
 Route::post('/user',  [AuthController::class, 'index']);
 Route::post('/perusahaan',  [perusahaanControl::class, 'index']);
 Route::post('/izin',  [izinControl::class, 'index']);
+Route::post('/opd',  [opdControl::class, 'index']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
