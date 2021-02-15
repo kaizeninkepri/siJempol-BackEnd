@@ -75,8 +75,7 @@
     </style>
     <body>
         <div class="header">
-         {{-- <img src="{{url('public/images/cop_surat.png')}}"> --}}
-         {{url('/')}}
+         <img src="{{url('/images/cop_surat.png')}}">
         </div>
         <div style="padding:20px">
             <center class="judul">PERSYARATAN PERIZINAN/NON PERIZINAN <br/> DPMPTSP PROVINSI KEPULAUAN RIAU</center>
