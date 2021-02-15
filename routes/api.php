@@ -25,13 +25,15 @@ use App\Http\Controllers\perusahaanControl;
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login',  [AuthController::class,'login']);
 
+Route::post('/user',  [AuthController::class, 'index']);
 Route::get('/menu',  [menuControl::class,'menu']);
 Route::post('/permohonan',  [permohonanControl::class, 'index']);
 Route::post('/pendaftaran',  [pendaftaranControl::class, 'index']);
-Route::post('/user',  [AuthController::class, 'index']);
 Route::post('/perusahaan',  [perusahaanControl::class, 'index']);
 Route::post('/izin',  [izinControl::class, 'index']);
 Route::post('/opd',  [opdControl::class, 'index']);
+Route::post('/pdf',  [pdfControl::class, 'index']);
+Route::get('/pdf/persyaratan',  [pdfControl::class, 'persyaratan']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
