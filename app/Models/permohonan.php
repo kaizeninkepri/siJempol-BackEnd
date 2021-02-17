@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Str;
 
 class permohonan extends Model
 {
@@ -13,7 +14,9 @@ class permohonan extends Model
     protected $table = "permohonan";
     protected $primaryKey = "permohonan_id";
     protected $appends = ['waktu', 'waktuClass', '_showDetails', 'rowClass', 'OnStep', 'statusBerkas', 'idCrypt'];
-
+    protected $casts = [
+        'created_at'  => 'date:d-m-Y H:i',
+    ];
 
     function getOnStepAttribute()
     {
@@ -45,7 +48,7 @@ class permohonan extends Model
     {
         if ($this->status == 'pending') {
             return "Berkas Belum Dikirim";
-        } else if ($this->status == 'proses') {
+        } else if (Str::lower($this->status) == 'proses') {
             return "Front Office";
         } else if ($this->status == 'keabsahan') {
             return "Back Office";
@@ -69,6 +72,7 @@ class permohonan extends Model
     }
 
     function getwaktuAttribute(){
+
        $days = Carbon::parse($this->updated_at)->diffInDays();
         if ($days < 7) {
             return Carbon::parse($this->updated_at)->diffForHumans();
@@ -76,6 +80,7 @@ class permohonan extends Model
             // return "andi";
             return Carbon::parse($this->updated_at)->format('d/m/Y H:i');
         }
+       
     }
     function getshowDetailsAttribute(){
         return false;

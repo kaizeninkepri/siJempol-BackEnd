@@ -21,7 +21,7 @@ class izinControl extends Controller
 
     public static function daftarIzin(Request $request)
     {
-        return izin::with(['persyaratan'])
+        return izin::with(['persyaratan', 'opd'])
         ->where('aktif', 'true')
             ->orderBy("nama_izin", 'ASC')->get();
     }

@@ -1,5 +1,5 @@
 <html>
-    <title><?php echo e($p->nama_izin); ?></title>
+    <title><?php echo e($p->izin->nama_izin); ?></title>
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
     <style type="text/css">
         @page{
@@ -75,26 +75,29 @@
     </style>
     <body>
         <div class="header">
-         <img src="<?php echo e(url('/images/cop_surat.png')); ?>">
+         
         </div>
         <div style="padding:20px">
-            <center class="judul">PERSYARATAN PERIZINAN/NON PERIZINAN <br/> DPMPTSP PROVINSI KEPULAUAN RIAU</center>
+            <center class="judul">SERAH TERIMA BERKAS<br/> DPMPTSP PROVINSI KEPULAUAN RIAU</center>
             <br/><br/>
             <div style="width:60%; float:left">
             <table>
                     <td class="Valign">Izin</td>
                     <td class="Valign">&nbsp;&nbsp; : &nbsp;&nbsp;</td>
                     <td class="Valign">
-                        <?php echo e($p->nama_izin); ?><br/>
-                        <?php echo e($p->kategori); ?><br/>
+                        <?php echo e($p->izin->nama_izin); ?><br/>
+                        <?php echo e($p->izin->kategori); ?><br/>
                         <?php echo e($p->opd->opd); ?><br/>
                     </td>
                 </tr>
             </table>
             </div>
+            <div style="float: right">
+            <img src="data:image/png;base64, <?php echo $qrCode; ?>">
+            </div>
             <div style="clear:both"></div>
             <br/><br/>
-           <table class="persyaratan">
+            <table class="persyaratan">
                <thead>
                 <tr>
                     <th>No</th>
@@ -110,6 +113,7 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
                 <tbody>
         </table>
+           
         <br/><br/>
         <?php (date_default_timezone_set("Asia/Bangkok")); ?>
         <?php ($data = date("d/m/Y H:i:s")); ?>
@@ -117,4 +121,4 @@
 
         </div>
     </body>
-</html><?php /**PATH /var/www/html/2021/siJempol/BackEnd/resources/views/PDF/persyaratan.blade.php ENDPATH**/ ?>
+</html><?php /**PATH /var/www/html/2021/siJempol/BackEnd/resources/views/PDF/serah_terima.blade.php ENDPATH**/ ?>

@@ -51,6 +51,11 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+        'ResourcesExternal' => [
+            'driver' => 'local',
+            'root'   => '../../Resources/perusahaan',
+            'url' => 'http://localhost/2021/siJempol/Resources/perusahaan/',
+        ],
 
     ],
 

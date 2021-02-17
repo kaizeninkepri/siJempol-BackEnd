@@ -1,5 +1,5 @@
 <html>
-    <title><?php echo e($p->nama_izin); ?></title>
+    <title>{{$p->izin->nama_izin}}</title>
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
     <style type="text/css">
         @page{
@@ -75,26 +75,29 @@
     </style>
     <body>
         <div class="header">
-         <img src="<?php echo e(url('/images/cop_surat.png')); ?>">
+         {{-- <img src="{{url('/images/cop_surat.png')}}"> --}}
         </div>
         <div style="padding:20px">
-            <center class="judul">PERSYARATAN PERIZINAN/NON PERIZINAN <br/> DPMPTSP PROVINSI KEPULAUAN RIAU</center>
+            <center class="judul">SERAH TERIMA BERKAS<br/> DPMPTSP PROVINSI KEPULAUAN RIAU</center>
             <br/><br/>
             <div style="width:60%; float:left">
             <table>
                     <td class="Valign">Izin</td>
                     <td class="Valign">&nbsp;&nbsp; : &nbsp;&nbsp;</td>
                     <td class="Valign">
-                        <?php echo e($p->nama_izin); ?><br/>
-                        <?php echo e($p->kategori); ?><br/>
-                        <?php echo e($p->opd->opd); ?><br/>
+                        {{$p->izin->nama_izin}}<br/>
+                        {{$p->izin->kategori}}<br/>
+                        {{$p->opd->opd}}<br/>
                     </td>
                 </tr>
             </table>
             </div>
+            <div style="float: right">
+            <img src="data:image/png;base64, {!! $qrCode !!}">
+            </div>
             <div style="clear:both"></div>
             <br/><br/>
-           <table class="persyaratan">
+            <table class="persyaratan">
                <thead>
                 <tr>
                     <th>No</th>
@@ -102,19 +105,19 @@
                 </tr>
                </thead>
                <tbody>
-                   <?php $__currentLoopData = $p->persyaratan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p => $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                   @foreach($p->persyaratan as $p => $i)
                     <tr>
-                        <td class="text-bold"><center><?php echo e($p+1); ?></center></td>
-                        <td><?php echo e($i->persyaratan); ?></td>
+                        <td class="text-bold"><center>{{$p+1}}</center></td>
+                        <td>{{$i->persyaratan}}</td>
                     </tr>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
+                    @endforeach   
                 <tbody>
         </table>
+           
         <br/><br/>
-        <?php (date_default_timezone_set("Asia/Bangkok")); ?>
-        <?php ($data = date("d/m/Y H:i:s")); ?>
-        di print pada tanggal : <?php echo e($data); ?>
-
+        @php(date_default_timezone_set("Asia/Bangkok"))
+        @php($data = date("d/m/Y H:i:s"))
+        di print pada tanggal : {{$data}}
         </div>
     </body>
-</html><?php /**PATH /var/www/html/2021/siJempol/BackEnd/resources/views/PDF/persyaratan.blade.php ENDPATH**/ ?>
+</html>
