@@ -37,6 +37,10 @@ Route::post('/opd',  [opdControl::class, 'index']);
 Route::get('/pdf',  [pdfControl::class, 'index']);
 Route::get('/pdf/persyaratan',  [pdfControl::class, 'persyaratan']);
 
+Route::get('/izin',  [izinControl::class, 'index']);
+
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

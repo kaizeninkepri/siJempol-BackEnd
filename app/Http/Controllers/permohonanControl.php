@@ -37,6 +37,8 @@ class permohonanControl extends Controller
             return self::UploadedFile($request);
         } else if ($type == 'kirimpermohonan') {
             return self::kirimpermohonan($request);
+        } else if ($type == 'permohonanByFO') {
+            return self::permohonanByFO($request);
         }
     }
 
@@ -130,7 +132,9 @@ class permohonanControl extends Controller
     public static function permohonanByid(Request $request)
     {
         $permohonan_id = Crypt::decryptString($request->get('id'));
-        return permohonan::with(['perusahaan', 'izin', 'persyaratan', 'pengurus', 'opd'])
+        return permohonan::with(['perusahaan', 'izin' => function ($i) {
+            $i->with(['opd']);
+        }, 'persyaratan', 'pengurus', 'opd'])
         ->where('permohonan_id', $permohonan_id)->first();
     }
 
@@ -229,5 +233,15 @@ class permohonanControl extends Controller
             "code" => "200",
             "message" => "Success"
         );
+    }
+
+    public static function permohonanByFO(Request $request)
+    {
+        $year = "2021";
+        return permohonan::with(['perusahaan', 'opd', 'izin', 'persyaratan', 'pengurus'])
+        ->whereYear('created_at', $year)
+            ->where('status', 'proses')
+            ->orderBY('created_at', 'DESC')
+            ->get();
     }
 }
