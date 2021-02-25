@@ -17,8 +17,51 @@ class permohonanPersyaratan extends Model
         'created_at'  => 'date:d-m-Y H:i',
     ];
 
-    protected $appends = ['uploading', 'verifikasi'];
+    protected $appends = ['uploading', 'verifikasi', 'BackOffice', 'Opd'];
 
+
+    function getBackOfficeAttribute()
+    {
+        $track = $this->track->where('role', 'Back Office')->first();
+        if ($track) {
+            return array(
+                "items" => $track,
+                "code" => "200",
+                "class" => "simple-icon-check font-weight-bold",
+                "text" => "Berkas Sudah Di Verifikasi " . $track->role,
+                "variant" => "success"
+            );
+        } else {
+            return array(
+                "items" => $track,
+                "code" => "500",
+                "class" => "iconsminds-folder-close font-weight-bold",
+                "text" => "Berkas Belum Di Verifikasi Back Office",
+                "variant" => "danger"
+            );
+        }
+    }
+    function getOpdAttribute()
+    {
+        $track = $this->track->where('role', 'Opd')->first();
+        if ($track) {
+            return array(
+                "items" => $track,
+                "code" => "200",
+                "class" => "simple-icon-check font-weight-bold",
+                "text" => "Berkas Sudah Di Verifikasi " . $track->role,
+                "variant" => "success"
+            );
+        } else {
+            return array(
+                "items" => $track,
+                "code" => "500",
+                "class" => "iconsminds-folder-close font-weight-bold",
+                "text" => "Berkas Belum Di Verifikasi Opd",
+                "variant" => "danger"
+            );
+        }
+    }
 
     function getverifikasiAttribute()
     {
@@ -68,5 +111,10 @@ class permohonanPersyaratan extends Model
     function permohonan()
     {
         return $this->belongsTo(permohonan::class, 'permohonan_id');
+    }
+
+    function track()
+    {
+        return $this->hasMany(permohonanPersyaratanTrack::class, 'permohonan_persyaratanId');
     }
 }

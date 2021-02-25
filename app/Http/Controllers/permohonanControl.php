@@ -39,6 +39,8 @@ class permohonanControl extends Controller
             return self::kirimpermohonan($request);
         } else if ($type == 'permohonanByFO') {
             return self::permohonanByFO($request);
+        } else if ($type == 'testResponse') {
+            return self::testResponse($request);
         }
     }
 
@@ -243,5 +245,11 @@ class permohonanControl extends Controller
             ->where('status', 'proses')
             ->orderBY('created_at', 'DESC')
             ->get();
+    }
+
+    public static function testResponse(Request $request)
+    {
+
+        return response($request);
     }
 }
