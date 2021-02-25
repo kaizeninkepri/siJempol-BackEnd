@@ -7546,3 +7546,213 @@ A0.25 0.25 0 0 0 9.75 40L9.25 40A0.25 0. at /var/www/html/2021/siJempol/BackEnd/
 #2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
 #3 {main}
 "} 
+[2021-02-25 13:44:55] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:45:04] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:45:33] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":2,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:46:00] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:46:39] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":2,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:46:49] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:47:27] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:47:42] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:48:14] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:48:16] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:48:28] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:48:50] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:49:05] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:49:34] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:49:54] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:51:25] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:52:09] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:52:36] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:52:47] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:53:41] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:54:06] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:54:24] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:54:33] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:55:11] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:55:20] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:55:28] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:1235) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:1235) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:55:46] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:1235) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:1235) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:55:56] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:1235) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:1235) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:56:18] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
+[2021-02-25 13:56:22] local.ERROR: Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) {"userId":1,"exception":"[object] (ErrorException(code: 0): Cannot modify header information - headers already sent by (output started at /var/www/html/2021/siJempol/BackEnd/vendor/symfony/http-foundation/Response.php:381) at /var/www/html/2021/siJempol/BackEnd/public/index.php:56)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/html/2021/siJempol/BackEnd/public/index.php(56): header()
+#2 /var/www/html/2021/siJempol/BackEnd/server.php(21): require_once('/var/www/html/2...')
+#3 {main}
+"} 
