@@ -13,4 +13,16 @@ class permohonanPersyaratanTrack extends Model
     protected $casts = [
         'created_at'  => 'date:d-m-Y H:i',
     ];
+    protected $appends = ['variant'];
+
+    function getvariantAttribute()
+    {
+        if ($this->status == 'true') {
+            $variant = "success";
+        } else {
+            $variant = 'warning';
+        }
+
+        return $variant;
+    }
 }

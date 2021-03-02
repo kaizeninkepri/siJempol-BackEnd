@@ -127,7 +127,7 @@ class permohonanControl extends Controller
     public static function permohonanByperusahaan(Request $request)
     {
         $perusahaan_id = $request->get('perusahaan_id');
-        return permohonan::with(['perusahaan', 'izin', 'opd'])
+        return permohonan::with(['perusahaan', 'izin', 'opd', 'pengurus'])
         ->where('perusahaan_id', $perusahaan_id)->get();
     }
 

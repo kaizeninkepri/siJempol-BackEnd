@@ -17,18 +17,18 @@ class permohonanPersyaratan extends Model
         'created_at'  => 'date:d-m-Y H:i',
     ];
 
-    protected $appends = ['uploading', 'verifikasi', 'BackOffice', 'Opd'];
+    protected $appends = ['uploading', 'verifikasi', 'BackOffice', 'Opd', 'InternVerifikasi', 'frontOffice'];
 
 
     function getBackOfficeAttribute()
     {
-        $track = $this->track->where('role', 'Back Office')->first();
-        if ($track) {
+        $track = $this->track->where('role', 'Back Office');
+        if (count($track) > 0) {
             return array(
                 "items" => $track,
                 "code" => "200",
                 "class" => "simple-icon-check font-weight-bold",
-                "text" => "Berkas Sudah Di Verifikasi " . $track->role,
+                "text" => "Berkas Sudah Di Verifikasi Back Office",
                 "variant" => "success"
             );
         } else {
@@ -43,13 +43,13 @@ class permohonanPersyaratan extends Model
     }
     function getOpdAttribute()
     {
-        $track = $this->track->where('role', 'Opd')->first();
-        if ($track) {
+        $track = $this->track->where('role', 'Opd');
+        if (count($track) > 0) {
             return array(
                 "items" => $track,
                 "code" => "200",
                 "class" => "simple-icon-check font-weight-bold",
-                "text" => "Berkas Sudah Di Verifikasi " . $track->role,
+                "text" => "Berkas Sudah Di Verifikasi OPD",
                 "variant" => "success"
             );
         } else {
@@ -108,11 +108,67 @@ class permohonanPersyaratan extends Model
         );
     }
 
+    function getInternVerifikasiAttribute()
+    {
+        if ($this->status == 'tolak') {
+            $variant = 'warning';
+        } else if ($this->status == 'terima-catatan') {
+            $variant = 'info';
+        } else {
+            $variant = 'success';
+        }
+
+        if ($this->status == 'waiting-upload') {
+            return array(
+                "value" => "pending",
+                "variant" => 'warning',
+                "text" => 'Pemohon Belum Upload Berkas',
+                "show" => false,
+                "verifikasi" => false,
+            );
+        } else if ($this->status === 'uploaded') {
+            return array(
+                "value" => "uploaded",
+                "variant" => 'danger',
+                "text" => 'Berkas Belum Di Verifikasi',
+                "show" => false,
+                "verifikasi" => false
+            );
+        } else {
+            return array(
+                "value" => $this->status,
+                "variant" => $variant,
+                "text" => $this->catatan,
+                "show" => false,
+                "verifikasi" => true
+            );
+        }
+    }
     function permohonan()
     {
         return $this->belongsTo(permohonan::class, 'permohonan_id');
     }
-
+    function getfrontOfficeAttribute()
+    {
+        $track = $this->track->where('role', 'Front Office');
+        if (count($track) > 0) {
+            return array(
+                "items" => $track,
+                "code" => "200",
+                "class" => "simple-icon-check font-weight-bold",
+                "text" => "Berkas Sudah Di Verifikasi ",
+                "variant" => "success"
+            );
+        } else {
+            return array(
+                "items" => $track,
+                "code" => "500",
+                "class" => "iconsminds-folder-close font-weight-bold",
+                "text" => "Berkas Belum Di Verifikasi Back Office",
+                "variant" => "danger"
+            );
+        }
+    }
     function track()
     {
         return $this->hasMany(permohonanPersyaratanTrack::class, 'permohonan_persyaratanId');
