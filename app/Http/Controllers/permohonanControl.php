@@ -281,8 +281,8 @@ class permohonanControl extends Controller
             File::makeDirectory($pathFolder, $mode = 0777, true, true);
         }
 
-        $name = Str::slug($persyaratan->permohonan_persyaratanId, '_');
-        $filename = $name . '.' . $file->getClientOriginalExtension();
+        $name = Str::slug($file->getClientOriginalName(), '_');
+        $filename = $persyaratan->permohonan_persyaratanId . '-' . $name . '.' . $file->getClientOriginalExtension();
 
         $path = Storage::disk("ResourcesExternal")->path($perusahaan->npwp . '/' . $permohonan->permohonan_code . '/persyaratan' . '/' . $filename);
         file_put_contents($path, $filename);
