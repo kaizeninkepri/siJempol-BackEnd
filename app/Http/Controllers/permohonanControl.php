@@ -285,7 +285,7 @@ class permohonanControl extends Controller
         $filename = $persyaratan->permohonan_persyaratanId . '-' . $name . '.' . $file->getClientOriginalExtension();
 
         $path = Storage::disk("ResourcesExternal")->path($perusahaan->npwp . '/' . $permohonan->permohonan_code . '/persyaratan' . '/' . $filename);
-        file_put_contents($path, $filename);
+        file_put_contents($path, $file->getClientOriginalName());
 
         $arPers = array(
             "status" => "uploaded",
