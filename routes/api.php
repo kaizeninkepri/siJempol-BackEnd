@@ -11,6 +11,8 @@ use App\Http\Controllers\pendaftaranControl;
 use App\Http\Controllers\permohonanControl;
 use App\Http\Controllers\permohonanPersyaratanControl;
 use App\Http\Controllers\perusahaanControl;
+use App\Http\Controllers\skControl;
+use App\Http\Controllers\suratpermintaan;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Route::post('/izin',  [izinControl::class, 'index']);
 Route::post('/opd',  [opdControl::class, 'index']);
 Route::get('/pdf',  [pdfControl::class, 'index']);
 Route::get('/pdf/persyaratan',  [pdfControl::class, 'persyaratan']);
+Route::post('/suratpermintaan',  [suratpermintaan::class, 'index']);
+Route::post('/sk',  [skControl::class, 'index']);
 
 Route::get('/izin',  [izinControl::class, 'index']);
 

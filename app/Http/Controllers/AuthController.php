@@ -46,12 +46,9 @@ class AuthController extends Controller
 
     public static function login(Request $request)
     {
-        $loginData = $request->validate([
-            'email' => 'email|required',
-            'password' => 'required'
-        ]);
+        $credentials = $request->only('email', 'password');
 
-        if (!auth()->attempt($loginData)) {
+        if (!auth()->attempt($credentials)) {
             return response(['code' => "500", 'message' => 'Invalid Credentials']);
         }
         $roleId = new Request();

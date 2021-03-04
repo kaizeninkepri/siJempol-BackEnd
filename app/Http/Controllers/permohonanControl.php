@@ -41,6 +41,10 @@ class permohonanControl extends Controller
             return self::permohonanByFO($request);
         } else if ($type == 'testResponse') {
             return self::testResponse($request);
+        } else if ($type == 'permohonanUpdateStatus') {
+            return self::permohonanUpdateStatus($request);
+        } else if ($type == 'permohonanByopd') {
+            return self::permohonanByopd($request);
         }
     }
 
@@ -127,7 +131,7 @@ class permohonanControl extends Controller
     public static function permohonanByperusahaan(Request $request)
     {
         $perusahaan_id = $request->get('perusahaan_id');
-        return permohonan::with(['perusahaan', 'izin', 'opd', 'pengurus'])
+        return permohonan::with(['perusahaan', 'izin', 'opd', 'pengurus', 'persyaratanTrack'])
         ->where('perusahaan_id', $perusahaan_id)->get();
     }
 
@@ -136,7 +140,7 @@ class permohonanControl extends Controller
         $permohonan_id = Crypt::decryptString($request->get('id'));
         return permohonan::with(['perusahaan', 'izin' => function ($i) {
             $i->with(['opd']);
-        }, 'persyaratan', 'pengurus', 'opd'])
+        }, 'persyaratan', 'pengurus', 'opd', 'suratpermintaan', 'sk', 'track', 'persyaratanTrack'])
         ->where('permohonan_id', $permohonan_id)->first();
     }
 
@@ -240,16 +244,130 @@ class permohonanControl extends Controller
     public static function permohonanByFO(Request $request)
     {
         $year = "2021";
+        $status = $request->get('status');
+
+        if ($status  == 'all') {
         return permohonan::with(['perusahaan', 'opd', 'izin', 'persyaratan', 'pengurus'])
         ->whereYear('created_at', $year)
-            ->where('status', 'proses')
-            ->orderBY('created_at', 'DESC')
-            ->get();
+                ->where('status', '!=', 'pending')
+                ->where('status', '!=', 'selesai')
+                ->where('status', '!=', 'tolak')
+                ->orderBY('created_at', 'DESC')
+                ->get();
+        } else {
+            return permohonan::with(['perusahaan', 'opd', 'izin', 'persyaratan', 'pengurus'])
+            ->whereYear('created_at', $year)
+            ->where('status',  $status)
+                ->orderBY('created_at', 'DESC')
+                ->get();
+        }
     }
 
     public static function testResponse(Request $request)
     {
 
-        return response($request);
+        $persyaratan_id = $request->get('persyaratan_id');
+        $file = $request->file('file');
+
+        date_default_timezone_set("Asia/Bangkok");
+        $timestamp = date("Y-m-d H:i:s");
+
+        $perusahaan = perusahaan::where('perusahaan_id', $request->get('perusahaan_id'))->first();
+        $permohonan = permohonan::where('permohonan_id', $request->get('permohonan_id'))->first();
+        $persyaratan = permohonanPersyaratan::where('permohonan_persyaratanId', $persyaratan_id)->first();
+
+        $pathFolder = Storage::disk("ResourcesExternal")->path($perusahaan->npwp . '/' . $permohonan->permohonan_code . '/persyaratan');
+        if (!File::exists($pathFolder)) {
+            File::makeDirectory($pathFolder, $mode = 0777, true, true);
+        }
+
+        $name = Str::slug($persyaratan->permohonan_persyaratanId, '_');
+        $filename = $name . '.' . $file->getClientOriginalExtension();
+
+        $path = Storage::disk("ResourcesExternal")->path($perusahaan->npwp . '/' . $permohonan->permohonan_code . '/persyaratan' . '/' . $filename);
+        file_put_contents($path, $filename);
+
+        $arPers = array(
+            "status" => "uploaded",
+            "file" => $filename,
+            "updated_at" => $timestamp,
+            "user_uploaded_file" => $perusahaan->perusahaan_id,
+        );
+
+
+        permohonanPersyaratan::where("permohonan_persyaratanId", $persyaratan["permohonan_persyaratanId"])
+        ->update($arPers);
+
+        return array(
+            "code" => "200",
+            "filename" => $filename
+        );
+        $name = Str::slug($persyaratan["persyaratan"], '_');
+        $filename = $name . '.' . $extension;
+
+        $path = Storage::disk("ResourcesExternal")->path($perusahaan->npwp . '/' . $permohonan->permohonan_code . '/persyaratan' . '/' . $filename);
+        file_put_contents($path, $decoded);
+
+        $arPers = array(
+            "status" => "uploaded",
+            "file" => $filename,
+            "updated_at" => $timestamp,
+            "user_uploaded_file" => $perusahaan->perusahaan_id,
+        );
+
+
+        permohonanPersyaratan::where("permohonan_persyaratanId", $persyaratan["permohonan_persyaratanId"])
+        ->update($arPers);
+
+        return array(
+            "code" => "200",
+            "filename" => $filename
+        );
+    }
+
+    public static function permohonanUpdateStatus(Request $request)
+    {
+        $permohonan = $request->get('permohonan');
+        $user_id = $request->get('user_id');
+        $track = $request->get('track');
+        date_default_timezone_set("Asia/Bangkok");
+        $timestamp = date("Y-m-d H:i:s");
+
+        if ($track['step'] == '2') {
+            $status = 'pending';
+        } else if ($track['step'] == '3') {
+            $status = 'keabsahan';
+        } else if ($track['step'] == '4') {
+            $status = 'teknis';
+        } else if ($track['step'] == '5') {
+            $status = 'draft';
+        }
+
+        permohonan::where('permohonan_id', $permohonan['permohonan_id'])->update(array(
+            "status" => $status,
+            "updated_at" => $timestamp
+        ));
+
+        $toTrack = array(
+            "permohonan_id" => $permohonan['permohonan_id'],
+            "perusahaan_id" => $permohonan['perusahaan_id'],
+            "pesan" => $track['pesan'],
+            "step" => $track['step'],
+            "ShowOnuser" => $track['showOnuser'],
+            "readShow" => "false",
+            "user_id" => $user_id,
+            "kategori" => $track['kategori'],
+        );
+        track::insert($toTrack);
+    }
+    public static function permohonanByopd(Request $request)
+    {
+        $opd_id = $request->get('opd_id');
+        $month = $request->get('month');
+        return permohonan::with(['perusahaan', 'izin', 'persyaratan', 'pengurus'])
+        ->where('opd_id', $opd_id)
+            ->whereMonth('created_at', $month)
+            ->whereYear('created_at', '2021')
+            ->get();
     }
 }

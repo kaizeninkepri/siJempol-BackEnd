@@ -13,10 +13,21 @@ class permohonan extends Model
     use HasFactory;
     protected $table = "permohonan";
     protected $primaryKey = "permohonan_id";
-    protected $appends = ['waktu', 'waktuClass', '_showDetails', 'rowClass', 'OnStep', 'statusBerkas', 'idCrypt'];
+    protected $appends = ['waktu', 'waktuClass', '_showDetails', 'rowClass', 'OnStep', 'statusBerkas', 'idCrypt', 'TrackStatus'];
     protected $casts = [
         'created_at'  => 'date:d-m-Y H:i',
     ];
+
+    function getTrackStatusAttribute()
+    {
+        $jumlah = count($this->persyaratanTrack);
+        $jumlah > 0 && $this->status == 'pending' ? $variant = 'warning' : $variant = 'light';
+        return array(
+            "items" => $this->persyaratanTrack,
+            "variant" => $variant,
+            "count" => $jumlah,
+        );
+    }
 
     function getOnStepAttribute()
     {
@@ -129,5 +140,25 @@ class permohonan extends Model
     function persyaratan()
     {
         return $this->hasMany(permohonanPersyaratan::class, 'permohonan_id');
+    }
+
+    function persyaratanTrack()
+    {
+        return $this->hasMany(permohonanPersyaratanTrack::class, 'permohonan_id');
+    }
+
+    function track()
+    {
+        return $this->hasMany(track::class, 'permohonan_id');
+    }
+
+    function suratpermintaan()
+    {
+        return $this->hasMany(suratPermintaan::class, 'permohonan_id');
+    }
+
+    function sk()
+    {
+        return $this->hasMany(sk::class, 'permohonan_id');
     }
 }
