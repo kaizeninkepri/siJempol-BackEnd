@@ -283,7 +283,7 @@ class permohonanControl extends Controller
 
         $name = Str::slug($file->getClientOriginalName(), '_');
         // $filename = $persyaratan->permohonan_persyaratanId . '-' . $name . '.' . $file->getClientOriginalExtension();
-        $filename = $file->getClientOriginalName() . '.' . $file->getClientOriginalExtension();
+        $filename = $file->getClientOriginalName();
 
         $path = Storage::disk("ResourcesExternal")->path($perusahaan->npwp . '/' . $permohonan->permohonan_code . '/persyaratan' . '/' . $filename);
         file_put_contents($path, $file->getClientOriginalName());
