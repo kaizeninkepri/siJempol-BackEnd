@@ -295,34 +295,14 @@ class permohonanControl extends Controller
         );
 
 
-        permohonanPersyaratan::where("permohonan_persyaratanId", $persyaratan["permohonan_persyaratanId"])
+        permohonanPersyaratan::where("permohonan_persyaratanId", $persyaratan->permohonan_persyaratanId)
         ->update($arPers);
 
         return array(
             "code" => "200",
             "filename" => $filename
         );
-        $name = Str::slug($persyaratan["persyaratan"], '_');
-        $filename = $name . '.' . $extension;
-
-        $path = Storage::disk("ResourcesExternal")->path($perusahaan->npwp . '/' . $permohonan->permohonan_code . '/persyaratan' . '/' . $filename);
-        file_put_contents($path, $decoded);
-
-        $arPers = array(
-            "status" => "uploaded",
-            "file" => $filename,
-            "updated_at" => $timestamp,
-            "user_uploaded_file" => $perusahaan->perusahaan_id,
-        );
-
-
-        permohonanPersyaratan::where("permohonan_persyaratanId", $persyaratan["permohonan_persyaratanId"])
-        ->update($arPers);
-
-        return array(
-            "code" => "200",
-            "filename" => $filename
-        );
+  
     }
 
     public static function permohonanUpdateStatus(Request $request)
