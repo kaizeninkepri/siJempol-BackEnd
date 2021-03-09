@@ -21,6 +21,8 @@ class suratpermintaan extends Controller
         $type = $request->get('type');
         if ($type == 'permintaan') {
             return self::permintaan($request);
+        } elseif ($type == 'permintaanDataByStatus') {
+            return self::permintaanDataByStatus($request);
         }
     }
 
@@ -89,5 +91,18 @@ class suratpermintaan extends Controller
             "kategori" => "BACK OFFICE",
         );
         track::insert($toTrack);
+    }
+
+    public static function permintaanDataByStatus(Request $request)
+    {
+        $kategori = $request->get('kategori');
+        $opd_id = $request->get('opd_id');
+
+        return ModelsSuratPermintaan::with(['permohonan' => function ($p) {
+            $p->with(['perusahaan', 'izin', 'pengurus']);
+        }])->where('kategori', $kategori['id'])
+        ->where('opd_id', $opd_id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
     }
 }

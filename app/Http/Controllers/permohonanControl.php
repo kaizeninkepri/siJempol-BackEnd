@@ -45,6 +45,8 @@ class permohonanControl extends Controller
             return self::permohonanUpdateStatus($request);
         } else if ($type == 'permohonanByopd') {
             return self::permohonanByopd($request);
+        } else if ($type == 'kirimpermohonanMobile') {
+            return self::kirimpermohonanMobile($request);
         }
     }
 
@@ -205,6 +207,47 @@ class permohonanControl extends Controller
     {
         $pengurus = $request->get('pengurus');
         $permohonan = $request->get('permohonan');
+        $user_id = $request->get('user_id');
+
+        date_default_timezone_set("Asia/Bangkok");
+        $timestamp = date("Y-m-d H:i:s");
+
+        $toPengurusDB = array(
+            "identitas_no" => $pengurus['nik'],
+            "identitas_kategori" => "Kartu Tanda Penduduk",
+            "nama" => $pengurus['nama'],
+            "contact" => $pengurus['contact'],
+        );
+        pengurus::where('perusahaanp_id', $pengurus['perusahaanp_id'])->update($toPengurusDB);
+
+        $toDBpermohonan = array(
+            "status" => "Proses",
+            "updated_at" => $timestamp
+        );
+        permohonan::where('permohonan_id', $permohonan['permohonan_id'])->update($toDBpermohonan);
+
+        $toTrack = array(
+            "permohonan_id" => $permohonan['permohonan_id'],
+            "perusahaan_id" => $permohonan['perusahaan_id'],
+            "pesan" => "Pengiriman Berkas Permohonan Ke Dinas Penanaman Modal Dan Pelayanan Terpadu Satu Pintu Provinsi Kepulauan Riau",
+            "step" => "2",
+            "ShowOnuser" => "true",
+            "user_id" => $user_id,
+            "kategori" => "Pengguna Jasa",
+        );
+        track::insert($toTrack);
+
+        return array(
+            "code" => "200",
+            "message" => "Success"
+        );
+    }
+
+
+    public static function kirimpermohonanMobile(Request $request)
+    {
+        $pengurus = $request->get('pengurus');
+        $permohonan = json_decode($request->get('permohonan'), true);
         $user_id = $request->get('user_id');
 
         date_default_timezone_set("Asia/Bangkok");
