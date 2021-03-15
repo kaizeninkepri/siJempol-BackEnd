@@ -19,9 +19,9 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:8080'],
+    'allowed_origins' => ['http://localhost:8080', 'http://appkepri.com', 'http://backend.appkepri.com'],
 
-    'allowed_origins_patterns' => ['http://localhost:8080'],
+    'allowed_origins_patterns' => ['http://localhost:8080', 'http://appkepri.com', 'http://backend.appkepri.com'],
 
     'allowed_headers' => ['*', 'Content-Type', 'X-Requested-With'
     ],

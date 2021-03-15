@@ -23,6 +23,8 @@ class suratpermintaan extends Controller
             return self::permintaan($request);
         } elseif ($type == 'permintaanDataByStatus') {
             return self::permintaanDataByStatus($request);
+        } elseif ($type == 'permintaandataBypermohonanId') {
+            return self::permintaandataBypermohonanId($request);
         }
     }
 
@@ -30,18 +32,18 @@ class suratpermintaan extends Controller
     {
         $surat = $request->get('surat');
         $user_id = $request->get('user_id');
-        $permohonan = $request->get('permohonan');
+        $permohonan = permohonan::where('permohonan_id', $request->get('permohonan_id'))->first();
 
-        $keterangan = $surat['kategori'] == '1' ? 'pengiriman' : 'terima';
-        $status = $surat['kategori'] == '1' ? 'selesai' : 'balas';
+        $keterangan = 'pengiriman';
+        $status = 'balas';
 
 
         date_default_timezone_set("Asia/Bangkok");
         $timestamp = date("Y-m-d H:i:s");
 
-        $perusahaan = perusahaan::where('perusahaan_id', $permohonan['perusahaan_id'])->first();
-        $permohonanData = permohonan::where('permohonan_id', $permohonan['permohonan_id'])->first();
-        $opdId = $surat['kategori'] == '1' ? $permohonanData['opd_id'] : '1';
+        $perusahaan = perusahaan::where('perusahaan_id', $permohonan->perusahaan_id)->first();
+        $permohonanData = permohonan::where('permohonan_id', $permohonan->permohonan_id)->first();
+        $opdId = 1;
         $pathFolder = Storage::disk("ResourcesExternal")->path($perusahaan->npwp . '/' . $permohonanData->permohonan_code . '/surat');
         if (!File::exists($pathFolder)) {
             File::makeDirectory($pathFolder, $mode = 0777, true, true);
@@ -65,7 +67,7 @@ class suratpermintaan extends Controller
             "user_id" => $user_id,
             "status" => $status,
             "permohonan_id" => $permohonan['permohonan_id'],
-            "kategori" => $surat['kategori'],
+            "kategori" => 1,
             "keterangan" => $keterangan,
             "opd_id" => $opdId,
         );
@@ -76,7 +78,7 @@ class suratpermintaan extends Controller
             "permohonan_id" => $permohonan['permohonan_id'],
             "surat_permintaan_id" => $surat_permintaan_id,
             "user_id" => $user_id,
-            "status" => $surat['kategori'],
+            "status" => 1,
         );
         surattrack::insert($toarraySuratTrack);
 
@@ -104,5 +106,13 @@ class suratpermintaan extends Controller
         ->where('opd_id', $opd_id)
             ->orderBy('created_at', 'DESC')
             ->get();
+    }
+
+    public static function permintaandataBypermohonanId(Request $request)
+    {
+        $permohonan_id = $request->get('permohonan_id');
+        $surat = ModelsSuratPermintaan::where('permohonan_id', $permohonan_id)->get();
+
+        return $surat;
     }
 }
